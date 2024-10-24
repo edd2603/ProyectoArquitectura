@@ -1,0 +1,66 @@
+#calendar {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 10px; /* Espacio interno */
+    max-width: 900px; /* Anchura máxima */
+    margin: auto; /* Centrar el calendario */
+}
+
+.fc-toolbar {
+    background-color: #00aaff; /* Color de la barra superior */
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
+.fc-button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.fc-button:hover {
+    background-color: #0056b3;
+}
+
+.fc-view-harness {
+    border-radius: 0 0 8px 8px; /* Bordes redondeados en la parte inferior */
+}
+
+.fc-day-today {
+    background-color: #ffeb3b; /* Color del día actual */
+}
+
+.fc-daygrid-event {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.fc-daygrid-event:hover {
+    background-color: #007bff;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5rem; /* Tamaño de la fuente del título */
+    color: #333;
+    font-weight: bold;
+}
+
+.fc-button-group .fc-button {
+    margin-right: 8px;
+}
+
+.fc .fc-toolbar button {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+    border-color: #e0e0e0; /* Color de las líneas divisorias */
+}

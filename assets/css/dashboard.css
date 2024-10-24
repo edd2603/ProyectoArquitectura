@@ -1,0 +1,211 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Citas */
+
+/* Estilo General */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo-citas {
+    text-align: center;
+    font-size: 2em;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.citas-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.cita-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 250px;
+    transition: box-shadow 0.3s;
+}
+
+.cita-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cita-card i {
+    font-size: 3em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.cita-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cita-card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.btn-cita {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cita:hover {
+    background-color: #218838;
+}
+
+/* Estilo para versiones móviles */
+@media (max-width: 768px) {
+    .citas-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cita-card {
+        width: 90%;
+    }
+}
+
+/* Contenedor de todas las tarjetas (cards) */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+    gap: 10px; /* Reduce el espacio entre las tarjetas */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Cada tarjeta (card) */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px; /* Define un ancho fijo para las tarjetas */
+    max-width: 100%; /* Evita que la tarjeta se desborde en pantallas pequeñas */
+    flex-grow: 1;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto hover para tarjetas */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Título de cada sección en la tarjeta */
+.card h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+/* Detalles de información */
+.info-detail {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Lista de medicamentos */
+.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-list li {
+    padding: 8px 0;
+    font-size: 1.1em;
+    color: #444;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-list li:last-child {
+    border-bottom: none;
+}
+
+/* Efectos de transición */
+.card, .info-detail {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

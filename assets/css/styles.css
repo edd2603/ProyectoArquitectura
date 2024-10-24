@@ -1,0 +1,109 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0f2ff; /* Azul suave */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Columna para header y contenido */
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1.5em;
+    width: 100%;
+    text-align: center;
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Asegura que el header esté sobre el contenido */
+}
+
+h1 {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 100px; /* Separación del header */
+    z-index: 0;
+}
+
+/* Imagen del logo */
+.container img {
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+/* Formulario */
+form {
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+    font-size: 1em;
+    margin-left: -10px!important;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Enlace de registro */
+.message {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.message a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}

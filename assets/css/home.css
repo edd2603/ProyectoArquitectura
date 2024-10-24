@@ -1,0 +1,65 @@
+.dashboard-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-section {
+    margin-bottom: 30px;
+}
+
+.dashboard-section h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #34495E;
+    border-bottom: 2px solid #2980B9;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.citas-list, .medicamentos-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.citas-list li, .medicamentos-list li {
+    background-color: #ecf0f1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #2C3E50;
+}
+
+.logout-link {
+    display: inline-block;
+    background-color: #E74C3C;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.logout-link:hover {
+    background-color: #C0392B;
+}
+
+.message {
+    text-align: center;
+    font-size: 18px;
+    color: #2C3E50;
+}
