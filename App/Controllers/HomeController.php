@@ -65,11 +65,19 @@ public function informacion() {
     $paciente = $this->db->fetch("SELECT id FROM pacientes WHERE usuario = ?", [$usuario]);
     $paciente_id = $paciente['id'];
 
-    // Obtener la próxima cita médica confirmada
-    $proxima_cita = $this->db->fetch("SELECT fecha_cita, tipo_cita, estado FROM citas_medicas WHERE paciente_id = ? AND estado = 'confirmada' ORDER BY fecha_cita ASC LIMIT 1", [$paciente_id]);
+    // Obtener la próxima cita médica confirmada que esté en el futuro
+    $proxima_cita = $this->db->fetch("SELECT fecha_cita, tipo_cita, estado 
+                                      FROM citas_medicas 
+                                      WHERE paciente_id = ? AND estado = 'confirmada' 
+                                      AND fecha_cita > NOW() 
+                                      ORDER BY fecha_cita ASC 
+                                      LIMIT 1", [$paciente_id]);
 
-    // Obtener los medicamentos pendientes por reclamar
-    $medicamentos_pendientes = $this->db->fetchAll("SELECT nombre_medicamento, dosis, frecuencia FROM medicamentos WHERE consulta_id IN (SELECT id FROM consultas WHERE paciente_id = ?)", [$paciente_id]);
+    // Obtener los medicamentos pendientes por reclamar (por ejemplo, con un estado "pendiente")
+    $medicamentos_pendientes = $this->db->fetchAll("SELECT nombre_medicamento, dosis, frecuencia 
+                                                    FROM medicamentos 
+                                                    WHERE consulta_id IN (SELECT id FROM consultas WHERE paciente_id = ?)
+                                                    AND estado = '1'", [$paciente_id]);
 
     // Generar el contenido de la página con clases CSS estilo "card"
     ob_start();
@@ -83,7 +91,7 @@ public function informacion() {
         $content .= "<p class='info-detail'><strong>Tipo:</strong> " . ucfirst($proxima_cita['tipo_cita']) . "</p>";
         $content .= "<p class='info-detail'><strong>Estado:</strong> " . ucfirst($proxima_cita['estado']) . "</p>";
     } else {
-        $content .= "<p class='info-detail'>No tienes citas confirmadas.</p>";
+        $content .= "<p class='info-detail'>No tienes citas confirmadas próximas.</p>";
     }
     $content .= "</div>"; // Fin de la card de citas
 
@@ -106,6 +114,7 @@ public function informacion() {
     echo $content;
     echo ob_get_clean();
 }
+
 
 
     // Método para confirmar el registro y mostrar SweetAlert

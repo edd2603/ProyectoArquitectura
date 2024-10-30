@@ -106,48 +106,48 @@ $pdf->Output('F', $file_path);
         echo json_encode(['status' => 'success', 'message' => 'El historial clínico ha sido enviado a tu correo.']);
     }
 
-    private function enviarCorreoConPDF($correo_paciente, $file_path) {
-        // Incluir la clase PHPMailer
-        require(__DIR__ . '/../../lib/PHPMailer/src/PHPMailer.php');
-        require(__DIR__ . '/../../lib/PHPMailer/src/SMTP.php');
-        require(__DIR__ . '/../../lib/PHPMailer/src/Exception.php');
+   private function enviarCorreoConPDF($correo_paciente, $file_path) {
+    // Incluir la clase PHPMailer
+    require(__DIR__ . '/../../lib/PHPMailer/src/PHPMailer.php');
+    require(__DIR__ . '/../../lib/PHPMailer/src/SMTP.php');
+    require(__DIR__ . '/../../lib/PHPMailer/src/Exception.php');
 
-        $mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
-        try {
-            // Configuración del servidor SMTP
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'jhon.ospina1685@ucaldas.edu.co'; // Gmail que usamos en las pruebas
-            $mail->Password   = 'ryqm suef ozra uscb';            // Contraseña de la cuenta Gmail
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
+    try {
+        // Configuración del servidor SMTP
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'jhon.ospina1685@ucaldas.edu.co'; // Gmail que usamos en las pruebas
+        $mail->Password   = 'ryqm suef ozra uscb';            // Contraseña de la cuenta Gmail
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
 
-            // Remitente y destinatario
-            $mail->setFrom('jhon.ospina1685@ucaldas.edu.co', 'Sistema de Diagnóstico');
-            $mail->addAddress($correo_paciente);
+        // Remitente y destinatario
+        $mail->setFrom('jhon.ospina1685@ucaldas.edu.co', 'Sistema de Diagnóstico');
+        $mail->addAddress($correo_paciente);
 
-            // Adjuntar el PDF generado
-            if (file_exists($file_path)) {
-                $mail->addAttachment($file_path);
-            } else {
-                echo "El archivo PDF no fue encontrado para adjuntarlo.";
-                return;
-            }
-
-            // Contenido del correo
-            $mail->isHTML(true);
-            $mail->Subject = 'Historial Clínico';
-            $mail->Body    = 'Adjunto encontrarás tu historial clínico de los últimos 6 meses.';
-
-            // Enviar correo
-            $mail->send();
-            echo "Correo enviado con éxito.";
-        } catch (Exception $e) {
-            echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
+        // Adjuntar el PDF generado
+        if (file_exists($file_path)) {
+            $mail->addAttachment($file_path);
+        } else {
+            echo "El archivo PDF no fue encontrado para adjuntarlo.";
+            return;
         }
+
+        // Contenido del correo con codificación UTF-8
+        $mail->isHTML(true);
+        $mail->Subject = utf8_decode('Historial Clínico');
+        $mail->Body    = utf8_decode('Adjunto encontrarás tu historial clínico de los últimos 6 meses.');
+
+        // Enviar correo
+        $mail->send();
+        echo "Correo enviado con éxito.";
+    } catch (Exception $e) {
+        echo "El correo no pudo ser enviado. Error: {$mail->ErrorInfo}";
     }
+}
 
 /*    private function insertarHistoriaClinicaPrueba($paciente_id) {
         $this->db->execute("INSERT INTO historial_clinico (paciente_id, fecha, descripcion) VALUES (?, NOW(), ?)", 

@@ -44,6 +44,10 @@ $router->add('citas/obtenerEventos/{medico_id}', ['controller' => 'CitasControll
 $router->add('citas/cancelar', ['controller' => 'CitasController', 'action' => 'cancelarCita']);
 $router->add('historia-clinica', ['controller' => 'HistoriaClinicaController', 'action' => 'solicitarHistoriaClinica']);
 $router->add('informacion', ['controller' => 'HomeController', 'action' => 'informacion']);
+$router->add('medicamentos', ['controller' => 'MedicamentosController', 'action' => 'solicitarMedicamentos']);
+
+
+
 
 
 // Obtener la URL actual
